@@ -1,5 +1,6 @@
 <?php
     require('koneksi.php');
+    require('cud/hapus-action.php');
 
     $bukus = mysqli_query($conn,'SELECT * FROM buku');
 ?>
@@ -15,8 +16,27 @@
 </head>
 <body>
     <div class="p-5">
-        <a href="/crud-simpel/cud/create.php"><button class="btn btn-primary">Tambah Buku</button></a>
+        <a href="/simple-crud-php/cud/create.php"><button class="btn btn-primary">Tambah Buku</button></a>
     </div>
+    <?php if (isset($_GET['status'])) { ?>
+    <?php if ($_GET['status'] == 'sukses') { ?>
+      <!-- alert -->
+      <div class="alert alert-success shadow-lg px-10 w-max ml-5">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span>Buku Berhasil Ditambahkan</span>
+      </div>
+      </div>
+      <!-- end alert -->
+    <?php }else { ?>
+      <div class="alert alert-error shadow-lg px-10 w-max ml-5">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span>Buku Gagal DiTambahkan</span>
+      </div>
+      </div>
+    <?php } ?>
+    <?php } ?>
     <div class="overflow-x-auto p-5">
   <table class="table table-zebra w-full">
     <thead>
@@ -39,7 +59,7 @@
         <td><?php echo $buku['stok'] ?></td>
         <td>
             <button class="btn btn-warning text-white">Edit</button>
-            <button class="btn btn-error text-white">Hapus</button>
+            <?php echo '<a href="http://localhost/simple-crud-php/?id=' . $buku['id'] . '"><button class="btn btn-error text-white">Hapus</button></a>'; ?>
         </td>
       </tr>
       <?php } ?>

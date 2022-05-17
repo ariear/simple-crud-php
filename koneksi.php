@@ -1,3 +1,3 @@
 <?php
-    $conn = mysqli_connect('localhost','root','','perpustakaan');
+    $conn = mysqli_connect('localhost','root','','perpustakaan_simpel');
 ?>
