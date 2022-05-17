@@ -52,13 +52,13 @@
     <tbody>
     <?php foreach ($bukus as $key => $buku) { ?>
       <tr>
-        <th><?php echo $buku['id'] ?></th>
+        <th><?php echo $key + 1 ?></th>
         <td><?php echo $buku['judul'] ?></td>
         <td><?php echo $buku['kategori'] ?></td>
         <td><?php echo $buku['keterangan'] ?></td>
         <td><?php echo $buku['stok'] ?></td>
         <td>
-            <button class="btn btn-warning text-white">Edit</button>
+            <?php echo '<a href="http://localhost/simple-crud-php/cud/edit.php/?id=' . $buku['id'] . '"><button class="btn btn-warning text-white">Edit</button></a>'; ?>
             <?php echo '<a href="http://localhost/simple-crud-php/?id=' . $buku['id'] . '"><button class="btn btn-error text-white">Hapus</button></a>'; ?>
         </td>
       </tr>
