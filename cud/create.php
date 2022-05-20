@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['login'])) {
+      echo "<script>location.href='http://localhost/simple-crud-php/auth/login.php'</script>";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +16,15 @@
     <title>Document</title>
 </head>
 <body>
+    <nav class="border-b shadow bg-blue-200">
+    <div class="container mx-auto px-5 flex items-center justify-between py-5">
+      <p class="text-3xl font-medium">Arie.</p>
+      <div>
+        <a href="../auth/logout-action.php"><button class="py-2 px-7 rounded-xl text-white bg-red-400 font-medium">Logout</button></a>
+      </div>
+    </div>
+    </nav>
+
     <p class="p-4 text-3xl font-medium">Tambah Buku</p>
 
     <form action="/simple-crud-php/cud/create-action.php" method="post">        

@@ -25,16 +25,30 @@ CREATE TABLE IF NOT EXISTS `buku` (
   `keterangan` varchar(250) NOT NULL,
   `stok` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table perpustakaan_simpel.buku: ~4 rows (approximately)
 /*!40000 ALTER TABLE `buku` DISABLE KEYS */;
 INSERT IGNORE INTO `buku` (`id`, `judul`, `kategori`, `keterangan`, `stok`) VALUES
-	(1, 'Belajar PHP Asik', 'pemrograman', 'buku php anjime', 10),
 	(14, 'Mengenal Arthuria Pendragon', 'sejarah', 'arturia penfragooonnn uwwooooggghhhh seee', 10),
 	(16, 'belajar piano Asik', 'musik', 'buku yan bikin anda berhasil menjadi kaori anjime', 10),
 	(17, 'Mengenal Floss anjimwe', 'Komputer', 'sofware yang floss adalah jayaa', 69);
 /*!40000 ALTER TABLE `buku` ENABLE KEYS */;
+
+-- Dumping structure for table perpustakaan_simpel.user
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table perpustakaan_simpel.user: ~1 rows (approximately)
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT IGNORE INTO `user` (`id`, `nama`, `email`, `password`) VALUES
+	(2, 'Arie Akbarull', 'arieinjector@gmail.com', '$2y$10$1vVW8BzHiLaAghuPcmy1.O8bSitBTcrC5gL6j294wDoPHF7Y4.U8G');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
